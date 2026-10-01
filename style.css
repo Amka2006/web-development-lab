@@ -1,0 +1,395 @@
+/* ==========================================================================
+   1. ҮНДСЭН ТОХИРГОО БОЛОН Google Fonts (Шаардлага 5)
+   ========================================================================== */
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --card-border: #30363d;
+    --primary-color: #00adb5;
+    --primary-hover: #00888e;
+    --secondary-color: #238636;
+    --secondary-hover: #2ea043;
+    --text-color: #c9d1d9;
+    --text-heading: #ffffff;
+    --text-muted: #8b949e;
+    --input-bg: #0d1117;
+    --input-border: #30363d;
+    --input-focus: #58a6ff;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 40px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION (Class сонгогчууд)
+   ========================================================================== */
+.main-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--card-border);
+    padding: 24px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.main-title {
+    color: var(--text-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 12px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-heading);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   3. CARD & BOX MODEL (Шаардлага 3: Padding, Border, Margin, Border-Radius)
+   ========================================================================== */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-section {
+    position: relative; /* Шаардлага 4: position relative badge-д зориулж */
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.card-section:hover {
+    border-color: #484f58;
+}
+
+.section-title {
+    color: var(--text-heading);
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.section-desc {
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   4. POSITION (RELATIVE / ABSOLUTE) (Шаардлага 4: Badge & Tooltip)
+   ========================================================================== */
+/* Badge style (Absolute positioning) */
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary { background-color: rgba(0, 173, 181, 0.15); color: var(--primary-color); border: 1px solid var(--primary-color); }
+.badge-info { background-color: rgba(88, 166, 255, 0.15); color: #58a6ff; border: 1px solid #58a6ff; }
+.badge-success { background-color: rgba(46, 160, 67, 0.15); color: #3fb950; border: 1px solid #2ea043; }
+.badge-warning { background-color: rgba(210, 153, 34, 0.15); color: #d29922; border: 1px solid #d29922; }
+
+/* Tooltip style (Relative / Absolute positioning) */
+.tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-wrapper .tooltip-text {
+    visibility: hidden;
+    width: 220px;
+    background-color: #21262d;
+    color: #fff;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    border: 1px solid var(--card-border);
+    
+    /* Position absolute */
+    position: absolute;
+    z-index: 10;
+    bottom: 125%; 
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ==========================================================================
+   5. HTML FORM STYLING (Шаардлага 2 & 3: Class сонгогчид ба Box model)
+   ========================================================================== */
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-fieldset {
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin: 0;
+}
+
+.form-legend {
+    color: var(--primary-color);
+    font-weight: 600;
+    padding: 0 10px;
+    font-size: 1.05rem;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    color: var(--text-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Form Inputs */
+.form-input, 
+.form-select, 
+.form-textarea, 
+.form-file {
+    width: 100%;
+    padding: 10px 14px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius-sm);
+    color: var(--text-heading);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.form-input:focus, 
+.form-select:focus, 
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.2);
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+/* Custom Radios & Checkboxes */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.radio-label, .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.form-radio, .form-checkbox {
+    accent-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Range Input */
+.range-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.form-range {
+    flex: 1;
+    accent-color: var(--primary-color);
+}
+
+.range-value {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 50px;
+}
+
+/* Form Action Buttons */
+.form-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-family);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #21262d;
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+}
+
+.btn-secondary:hover {
+    background-color: #30363d;
+    color: var(--text-heading);
+}
+
+/* ==========================================================================
+   6. ХҮСНЭГТ БОЛОН ЖААГСААЛТ СТАЙЛ
+   ========================================================================== */
+.styled-list {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.styled-list li strong {
+    color: var(--primary-color);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.custom-table th, 
+.custom-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.custom-table th {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-heading);
+    font-weight: 600;
+}
+
+.grade-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.grade-pill.high {
+    background-color: rgba(46, 160, 67, 0.2);
+    color: #3fb950;
+}
+
+.grade-pill.medium {
+    background-color: rgba(210, 153, 34, 0.2);
+    color: #d29922;
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.main-footer {
+    text-align: center;
+    padding: 30px 0 10px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 40px;
+}
